@@ -28,24 +28,24 @@ namespace XFDelivery.ViewModels
 
         void GetGroups()
         {
-            Groups = new ObservableCollection<Group>(DataService.GetGroups());
+            Groups = DataService.GetGroups();
         }
 
         void GetItems()
         {
-            Items = new ObservableCollection<Item>(DataService.GetItems());
+            Items = DataService.GetItems();
         }
 
-        private async Task ExecuteNavigateToDetailPageCommand(Item model)
+        private async Task ExecuteNavigateToDetailPageCommand(Item item)
         {
-            await Navigation.PushAsync(new DetailPage(model));
+            await Navigation.PushAsync(new DetailPage(item));
         }
 
-        private void ExecuteSelectGroupCommand(Group model)
+        private void ExecuteSelectGroupCommand(Group group)
         {
             var index = Groups
                 .ToList()
-                .FindIndex(p => p.description == model.description);
+                .FindIndex(g => g.description == group.description);
 
             if (index > -1)
             {
@@ -54,14 +54,23 @@ namespace XFDelivery.ViewModels
                 Groups[index].selected = true;
                 Groups[index].backgroundColor = Color.FromHex("#FF8920");
             }
+
+            Items.Clear();
+            DataService.GetItems().ForEach(i =>
+            {
+                if (i.groups.Contains(group.description))
+                {
+                    Items.Add(i);
+                }
+            });
         }
 
         void UnselectGroupItems()
         {
-            Groups.ForEach((item) =>
+            Groups.ForEach((group) =>
             {
-                item.selected = false;
-                item.backgroundColor = Color.FromHex("#FFFFFF");
+                group.selected = false;
+                group.backgroundColor = Color.FromHex("#FFFFFF");
             });
         }
     }

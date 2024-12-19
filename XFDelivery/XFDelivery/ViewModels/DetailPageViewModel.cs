@@ -29,6 +29,13 @@ namespace XFDelivery.ViewModels
             set { SetProperty(ref _quant, value); }
         }
 
+        private bool _favorite;
+        public bool Favorite
+        {
+            get { return _favorite; }
+            set { SetProperty(ref _favorite, value); }
+        }
+
         private async Task ExecutePopDetailPageCommand()
         {
             await Navigation.PopAsync();
@@ -43,6 +50,16 @@ namespace XFDelivery.ViewModels
         {
             if (Quant > 1)
                 Quant -= 1;
+        }
+
+        private void ExecuteSetFavoriteCommand()
+        {
+            Favorite = true;
+        }
+
+        private void ExecuteUnsetFavoriteCommand()
+        {
+            Favorite = false;
         }
     }
 }
