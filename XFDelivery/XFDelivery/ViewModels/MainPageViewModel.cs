@@ -23,15 +23,15 @@ namespace XFDelivery.ViewModels
 
         public Command SelectGroupCommand { get; }
         public Command NavigateToDetailPageCommand { get; }
-        private ObservableCollection<Group> Groups { get; set; }
-        private ObservableCollection<Item> Items { get; set; }
+        public ObservableCollection<Group> Groups { get; set; }
+        public ObservableCollection<Item> Items { get; set; }
 
-        private void GetGroups()
+        void GetGroups()
         {
             Groups = DataService.GetGroups();
         }
 
-        private void GetItems()
+        void GetItems()
         {
             Items = DataService.GetItems();
         }
@@ -62,6 +62,10 @@ namespace XFDelivery.ViewModels
                 {
                     Items.Add(i);
                 }
+                // else
+                // {
+                //     Items.Remove(i);
+                // }
             });
         }
 

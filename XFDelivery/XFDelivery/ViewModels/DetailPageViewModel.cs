@@ -13,8 +13,7 @@ namespace XFDelivery.ViewModels
             PopDetailPageCommand = new Command(async () => await ExecutePopDetailPageCommand());
             AddQuantCommand = new Command(ExecuteAddQuantCommand);
             DeleteQuantCommand = new Command(ExecuteDeleteQuantCommand);
-            SetFavorite = new Command(ExecuteSetFavoriteCommand);
-            UnsetFavorite = new Command(ExecuteUnsetFavoriteCommand);
+            SetFavoriteCommand = new Command(ExecuteSetFavoriteCommand);
             Item = item;
             Quant = 1;
         }
@@ -22,8 +21,7 @@ namespace XFDelivery.ViewModels
         public Command PopDetailPageCommand { get; }
         public Command AddQuantCommand { get; }
         public Command DeleteQuantCommand { get; }
-        public Command SetFavorite { get; }
-        public Command UnsetFavorite { get; }
+        public Command SetFavoriteCommand { get; }
         public Item Item { get; set; }
 
         private int _quant;
@@ -58,12 +56,10 @@ namespace XFDelivery.ViewModels
 
         private void ExecuteSetFavoriteCommand()
         {
-            Favorite = true;
-        }
-
-        private void ExecuteUnsetFavoriteCommand()
-        {
-            Favorite = false;
+            if (!Favorite)
+            {
+                Favorite = true;
+            }
         }
     }
 }
