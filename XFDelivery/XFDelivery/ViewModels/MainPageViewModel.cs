@@ -55,17 +55,16 @@ namespace XFDelivery.ViewModels
                 Groups[index].backgroundColor = Color.FromHex("#FF8920");
             }
 
-            Items.Clear();
             DataService.GetItems().ForEach(i =>
             {
-                if (i.groups.Contains(group.description))
+                if (i.groups.Contains(group.description) && !Items.Contains(i))
                 {
                     Items.Add(i);
                 }
-                // else
-                // {
-                //     Items.Remove(i);
-                // }
+                if (!i.groups.Contains(group.description) && Items.Contains(i))
+                {
+                    Items.Remove(i);
+                }
             });
         }
 

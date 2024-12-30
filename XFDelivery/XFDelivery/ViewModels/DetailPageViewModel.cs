@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using Xamarin.Forms;
 using XFDelivery.Models;
+using XFDelivery.Service;
 using XFDelivery.ViewModel;
 
 namespace XFDelivery.ViewModels
@@ -56,10 +57,24 @@ namespace XFDelivery.ViewModels
 
         private void ExecuteSetFavoriteCommand()
         {
-            if (!Favorite)
+            if (Favorite)
+            {
+                Favorite = false;
+            }
+            else
             {
                 Favorite = true;
             }
+        }
+
+        private void ExecuteAddToShoppingCartCommand(Item item)
+        {
+            DataService.AddToShoppingCart(item);
+        }
+
+        private void ExecuteRemoveFromShoppingCartCommand(Item item)
+        {
+            DataService.RemoveFromShoppingCart(item);
         }
     }
 }

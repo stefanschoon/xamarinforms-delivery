@@ -75,6 +75,8 @@ namespace XFDelivery.Service
             }
         };
 
+        private static ObservableCollection<Item> _shoppingCart = new ObservableCollection<Item>();
+
         public static ObservableCollection<Group> GetGroups()
         {
             return new ObservableCollection<Group>(_groups);
@@ -83,6 +85,16 @@ namespace XFDelivery.Service
         public static ObservableCollection<Item> GetItems()
         {
             return new ObservableCollection<Item>(_items);
+        }
+
+        public static void AddToShoppingCart(Item item)
+        {
+            _shoppingCart.Add(item);
+        }
+
+        public static void RemoveFromShoppingCart(Item item)
+        {
+            _shoppingCart.Remove(item);
         }
     }
 }
