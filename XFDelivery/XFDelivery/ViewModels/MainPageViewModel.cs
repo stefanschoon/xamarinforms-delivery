@@ -55,22 +55,22 @@ namespace XFDelivery.ViewModels
                 Groups[index].backgroundColor = Color.FromHex("#FF8920");
             }
 
-            DataService.GetItems().ForEach(i =>
+            DataService.GetItems().ForEach(item =>
             {
-                if (i.groups.Contains(group.description) && !Items.Contains(i))
+                if (item.groups.Contains(group.description) && !Items.Contains(item))
                 {
-                    Items.Add(i);
+                    Items.Add(item);
                 }
-                if (!i.groups.Contains(group.description) && Items.Contains(i))
+                if (!item.groups.Contains(group.description) && Items.Contains(item))
                 {
-                    Items.Remove(i);
+                    Items.Remove(item);
                 }
             });
         }
 
         private void UnselectGroupItems()
         {
-            Groups.ForEach((group) =>
+            Groups.ForEach(group =>
             {
                 group.selected = false;
                 group.backgroundColor = Color.FromHex("#FFFFFF");

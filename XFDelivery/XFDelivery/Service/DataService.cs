@@ -10,28 +10,28 @@ namespace XFDelivery.Service
         {
             new Group()
             {
-                description = "All",
+                description = GroupType.All,
                 image = "brigadeiro",
                 selected = true,
                 backgroundColor = Color.FromHex("#FF8920")
             },
             new Group()
             {
-                description = "Pizza",
+                description = GroupType.Pizza,
                 image = "pizza",
                 selected = false,
                 backgroundColor = Color.FromHex("#FFFFFF")
             },
             new Group()
             {
-                description = "Burgers",
+                description = GroupType.Burgers,
                 image = "burger",
                 selected = false,
                 backgroundColor = Color.FromHex("#FFFFFF")
             },
             new Group()
             {
-                description = "Asian",
+                description = GroupType.Asian,
                 image = "junk_food",
                 selected = false,
                 backgroundColor = Color.FromHex("#FFFFFF")
@@ -43,7 +43,7 @@ namespace XFDelivery.Service
             new Item()
             {
                 description = "Margherita",
-                groups = new [] {"All", "Pizza"},
+                groups = new [] {GroupType.All, GroupType.Pizza},
                 complement = "Tomato sauce, fresh mozzarella, olive oil, fresh basi",
                 image = "item1",
                 calories = 76,
@@ -54,7 +54,7 @@ namespace XFDelivery.Service
             new Item()
             {
                 description = "Rughetta",
-                groups = new [] {"All", "Pizza"},
+                groups = new [] {GroupType.All, GroupType.Pizza},
                 complement = "Arugula, Cherry Tomatoes, Artichokes, Shaved Parmigiano, Lemon/E.V.O.O. Dressing",
                 calories = 70,
                 image = "item2",
@@ -65,7 +65,7 @@ namespace XFDelivery.Service
             new Item()
             {
                 description = "Banoffie Pie",
-                groups = new [] {"All", "Burgers"},
+                groups = new [] {GroupType.All, GroupType.Burgers},
                 complement = "Breaded chicken, ham and bacon, drizzled with homemade rach",
                 image = "item3",
                 calories = 85,

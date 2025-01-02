@@ -1,11 +1,12 @@
 ﻿using Xamarin.Forms;
+using XFDelivery.Service;
 using XFDelivery.ViewModel;
 
 namespace XFDelivery.Models
 {
     public class Group : BaseViewModel
     {
-        public string description { get; set; }
+        public GroupType description { get; set; }
         public string image { get; set; }
 
         private bool _selected;

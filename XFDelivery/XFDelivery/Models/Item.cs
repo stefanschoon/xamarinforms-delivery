@@ -1,9 +1,11 @@
-﻿namespace XFDelivery.Models
+﻿using XFDelivery.Service;
+
+namespace XFDelivery.Models
 {
     public class Item
     {
         public string description { get; set; }
-        public string[] groups { get; set; }
+        public GroupType[] groups { get; set; }
         public string complement { get; set; }
         public int calories { get; set; }
         public decimal price { get; set; }
