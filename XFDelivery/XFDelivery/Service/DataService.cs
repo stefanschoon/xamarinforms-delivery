@@ -6,38 +6,6 @@ namespace XFDelivery.Service
 {
     public class DataService
     {
-        private static Group[] _groups = new[]
-        {
-            new Group()
-            {
-                description = GroupType.All,
-                image = "brigadeiro",
-                selected = true,
-                backgroundColor = Color.FromHex("#FF8920")
-            },
-            new Group()
-            {
-                description = GroupType.Pizza,
-                image = "pizza",
-                selected = false,
-                backgroundColor = Color.FromHex("#FFFFFF")
-            },
-            new Group()
-            {
-                description = GroupType.Burgers,
-                image = "burger",
-                selected = false,
-                backgroundColor = Color.FromHex("#FFFFFF")
-            },
-            new Group()
-            {
-                description = GroupType.Asian,
-                image = "junk_food",
-                selected = false,
-                backgroundColor = Color.FromHex("#FFFFFF")
-            }
-        };
-
         private static Item[] _items = new[]
         {
             new Item()
@@ -72,6 +40,42 @@ namespace XFDelivery.Service
                 price = 106,
                 rating = 4.9,
                 favorite = true
+            }
+        };
+
+        private static Group[] _groups = new[]
+        {
+            new Group()
+            {
+                description = "All",
+                image = "brigadeiro",
+                groupType = GroupType.All,
+                selected = true,
+                backgroundColor = Color.FromHex("#FF8920")
+            },
+            new Group()
+            {
+                description = "Pizza",
+                image = "pizza",
+                groupType = GroupType.Pizza,
+                selected = false,
+                backgroundColor = Color.FromHex("#FFFFFF")
+            },
+            new Group()
+            {
+                description = "Burgers",
+                image = "burger",
+                groupType = GroupType.Burgers,
+                selected = false,
+                backgroundColor = Color.FromHex("#FFFFFF")
+            },
+            new Group()
+            {
+                description = "Asian",
+                image = "junk_food",
+                groupType = GroupType.Asian,
+                selected = false,
+                backgroundColor = Color.FromHex("#FFFFFF")
             }
         };
 

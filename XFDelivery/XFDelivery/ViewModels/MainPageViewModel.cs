@@ -43,9 +43,7 @@ namespace XFDelivery.ViewModels
 
         private void ExecuteSelectGroupCommand(Group group)
         {
-            var index = Groups
-                .ToList()
-                .FindIndex(g => g.description == group.description);
+            var index = Groups.IndexOf(group);
 
             if (index > -1)
             {
@@ -57,18 +55,18 @@ namespace XFDelivery.ViewModels
 
             DataService.GetItems().ForEach(item =>
             {
-                if (item.groups.Contains(group.description) && !Items.Contains(item))
+                if (item.groups.Contains(group.groupType) && !Items.Contains(item))
                 {
                     Items.Add(item);
                 }
-                if (!item.groups.Contains(group.description) && Items.Contains(item))
+                if (!item.groups.Contains(group.groupType) && Items.Contains(item))
                 {
                     Items.Remove(item);
                 }
             });
         }
 
-        private void UnselectGroupItems()
+        void UnselectGroupItems()
         {
             Groups.ForEach(group =>
             {

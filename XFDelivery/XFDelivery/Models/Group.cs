@@ -6,8 +6,9 @@ namespace XFDelivery.Models
 {
     public class Group : BaseViewModel
     {
-        public GroupType description { get; set; }
+        public string description { get; set; }
         public string image { get; set; }
+        public GroupType groupType { get; set; }
 
         private bool _selected;
         public bool selected
